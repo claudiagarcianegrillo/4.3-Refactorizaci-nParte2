@@ -137,33 +137,27 @@ public class OperacionesEmple extends JDialog {
 		//Accion boton insertar
 		btnInsertar.addActionListener(new InsertarListener() {
 			// Insertar un registro a la BD
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
+			public void actionPerformed(ActionEvent arg0) {}
 		});
 		
 		//Accion boton consultar
 		btnConsultar.addActionListener(new ConsultarListener() {
 			// Consultar un registro de la BD
-			public void actionPerformed(ActionEvent arg0) {
-				
+			public void actionPerformed(ActionEvent arg0) {				
 			}
 		});
 		
 		//Accion boton borrar
 		btnBorrar.addActionListener(new BorrarListener() {
 			 // Borrar registro de la BD
-			public void actionPerformed(ActionEvent arg0) {
-				
+			public void actionPerformed(ActionEvent arg0) {				
 			}
 		});
 		
 		//Accion boton modificar
 		btnModificar.addActionListener(new ModificarListener() {
 			// Modificar registro de la BD.
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
+			public void actionPerformed(ActionEvent arg0) {}
 		});
 	}
 	
