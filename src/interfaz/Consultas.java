@@ -29,7 +29,7 @@ import javax.swing.border.CompoundBorder;
 
 @SuppressWarnings("serial")
 public class Consultas extends JDialog implements ActionListener  {
-
+	private static final String BBDD = "Empleados.dat";
 	private final JPanel contentPane;
 	private JLabel lblResultado;
 	JButton btnDepar = new JButton("Ver departamentos");
@@ -91,7 +91,6 @@ public class Consultas extends JDialog implements ActionListener  {
 public void actionPerformed(ActionEvent e) 
 {   
 	
-	String BBDD="Empleados.dat";
 	odb = ODBFactory.open(BBDD);
 	
     if (e.getSource() == btnDepar) { consuldepart();  	}
@@ -114,7 +113,7 @@ public void consuldepart() {
 				if(!depar.isEmpty()){
 					int cont=depar.size();
 					String cabecera=String.format("%10s  %15s  %15s  %15s  %1s",
-							"Num depart", "Nombre", "Población", "Num Empleados", "Salario Medio");
+							"Num depart", "Nombre", "Poblaciï¿½n", "Num Empleados", "Salario Medio");
 					System.out.println(cabecera);
 					System.out.println("-----------------------------------------------------------------------------");
 					for(Departamento d:depar){					
@@ -156,7 +155,7 @@ public void consulemple() {
 				if(!emp.isEmpty()){
 					int cont=emp.size();
 					String cabecera=String.format("%11s  %15s  %15s  %15s  %10s  %15s  %10s",
-							"NumEmpleado", "Nombre", "Dirección", "Oficio", "Salario","NumDep", "NombreDep");
+							"NumEmpleado", "Nombre", "Direcciï¿½n", "Oficio", "Salario","NumDep", "NombreDep");
 					System.out.println(cabecera);
 					System.out.println("-------------------------------------------------------------------------------------------------------");
 					for(Empleado e:emp){
@@ -208,7 +207,7 @@ public void estadisdepart() {
 				}
 				if(nombre!=null) {
 					System.out.println("El departamento con mas empleados es: "+nombre+" con "+max+" empleados");
-					System.out.println("El departamento con mas media de salario es: "+nombreSal+" con "+maxSal+"€");
+					System.out.println("El departamento con mas media de salario es: "+nombreSal+" con "+maxSal+"ï¿½");
 					lblResultado.setText("Estadisticas de departamentos mostradas");
 				}
 				else{
@@ -231,13 +230,13 @@ public void estadisdepart() {
 						.field("salario").field("nombre", "nom"));
 				if(!values.isEmpty()){
 					ObjectValues o=values.next();
-					System.out.println("El empleado con mas salario es: "+o.getByAlias("nom")+" con un salario de "+o.getByIndex(0)+"€");
+					System.out.println("El empleado con mas salario es: "+o.getByAlias("nom")+" con un salario de "+o.getByIndex(0)+"ï¿½");
 					
 					//Media de salario
 					values=odb.getValues(new ValuesCriteriaQuery(Empleado.class).count("emp_no").sum("salario"));
 					ObjectValues o2=values.next();
 					double media=((BigDecimal)o2.getByIndex(1)).doubleValue()/((BigInteger)o2.getByIndex(0)).intValue();
-					System.out.println("La media de salario de los empleados es: "+media+"€");
+					System.out.println("La media de salario de los empleados es: "+media+"ï¿½");
 					
 					//Numero de empleados por oficio
 					values=odb.getValues(new ValuesCriteriaQuery(Empleado.class).count("emp_no").field("oficio").groupBy("oficio"));
