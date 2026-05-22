@@ -29,7 +29,7 @@ import javax.swing.border.CompoundBorder;
 
 @SuppressWarnings("serial")
 public class Consultas extends JDialog implements ActionListener  {
-
+	private static final String BBDD = "Empleados.dat";
 	private final JPanel contentPane;
 	private JLabel lblResultado;
 	JButton btnDepar = new JButton("Ver departamentos");
@@ -91,7 +91,6 @@ public class Consultas extends JDialog implements ActionListener  {
 public void actionPerformed(ActionEvent e) 
 {   
 	
-	String BBDD="Empleados.dat";
 	odb = ODBFactory.open(BBDD);
 	
     if (e.getSource() == btnDepar) { consuldepart();  	}
