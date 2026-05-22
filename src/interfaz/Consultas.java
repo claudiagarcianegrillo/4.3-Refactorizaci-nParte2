@@ -257,5 +257,16 @@ public void estadisdepart() {
 				System.out.println("---------------------------\n");
 				odb.close();
 			}
+	public class Etiquetas {
+	    public JButton btnDepar = new JButton("Ver departamentos");
+	    public JButton btnEmple = new JButton("Ver empleados");
+	    public JButton btnEstadDepar = new JButton("Estadisticas departamentos");
+	    public JButton btnEstadEmple = new JButton("Estadisticas empleados");
+	    public JLabel lblResultado = new JLabel("--------------------------------------------------");
+	    public JLabel lblTitulo = new JLabel("CONSULTAS A LA BBDD");
+
+	    public Etiquetas() {
+	    }
+	}
 ////////////////////////////////////////
 }
